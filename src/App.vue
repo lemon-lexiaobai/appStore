@@ -1,11 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/recommend">Recommend</router-link> |
-    </div>
+    <m-header></m-header>
     <router-view/>
+    <tab></tab>
   </div>
 </template>
+<script>
+import MHeader from 'components/m-header/m-header'
+import Tab from 'components/tab/tab'
+
+export default {
+  components: {
+    MHeader,
+    Tab
+  }
+}
+</script>
 
 <style lang="stylus">
 </style>
