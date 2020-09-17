@@ -14,3 +14,16 @@ export function getAppCategory () {
     return Promise.resolve(res.data)
   })
 }
+
+export function getAppList (id) {
+  const url = '/app/category'
+  const data = Object.assign({}, commonParams, {
+    uri: id
+  })
+
+  return axios.get(url, {
+    params: data
+  }).then(res => {
+    return Promise.resolve(res.data)
+  })
+}

@@ -4,6 +4,7 @@ import Recommend from 'components/recommend/recommend'
 import Application from 'components/application/application'
 import Games from 'components/games/games'
 import Rank from 'components/rank/rank'
+import Applist from 'components/applist/applist'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,13 @@ const routes = [
   {
     path: '/application',
     name: 'Application',
-    component: Application
+    component: Application,
+    children: [
+      {
+        path: ':id',
+        component: Applist
+      }
+    ]
   },
   {
     path: '/games',
