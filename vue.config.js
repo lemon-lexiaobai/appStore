@@ -9,9 +9,11 @@ module.exports = {
   devServer: {
     before (app) {
       app.get('/app/category', function (req, res, next) {
-        const url = 'https://web-drcn.hispace.dbankcloud.cn/uowap/index?method=internal.getTabDetail&serviceType=20&reqPageNum=1&uri=b2b4752f0a524fe5ad900870f88c11ed&maxResults=25&zone=&locale=zh_CN'
+        const url = 'https://web-drcn.hispace.dbankcloud.cn/uowap/index'
 
-        axios.get(url).then((response) => {
+        axios.get(url, {
+          params: req.query
+        }).then((response) => {
           res.json(response.data)
         }).catch((e) => {
           console.log(e)
@@ -25,5 +27,6 @@ module.exports = {
       .set('common', resolve('src/common'))
       .set('components', resolve('src/components'))
       .set('api', resolve('src/api'))
+      .set('base', resolve('src/base'))
   }
 }
